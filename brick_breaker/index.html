@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2D Breakout Game - JavScript</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap%27');
+        @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
+        * {
+            font-family: "Germania One";
+        }
+
+        body {
+            background-color: rgb(14, 14, 14) !important;
+            /* background-image: url('./img/bg-5.png'); */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        #breakout {
+            /* box-shadow: 2px 2px 2px 2px black; */
+            height: 100vh;
+        }
+
+        #sound {
+            width: 5%;
+            height: 8%;
+            cursor: pointer;
+            position: absolute;
+            top: 90%;
+            left: 2%;
+        }
+
+        #gameover {
+            position: absolute;
+            width: 100%;
+            height: 800px;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        #youwon {
+            width: 100px;
+            position: absolute;
+            top: 200px;
+            left: 150px;
+            display: none;
+        }
+
+        #youlose {
+            width: 400px;
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            display: none;
+        }
+
+        #restart {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5em;
+            cursor: pointer;
+            top: 45%;
+            color: #FFF;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .front {
+
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            z-index: 2;
+            cursor: default;
+            transition: all 0.1s ease;
+            color: aqua;
+
+        }
+
+        #hbt {
+            border: 1px solid aqua;
+            background-color: rgb(0, 0, 0);
+            color: aqua;
+            font-size: 2em;
+            font-family: 'Press Start 2P', cursive;
+            padding: 1em;
+            transition: all 0.5s ease;
+            position: relative;
+            cursor: pointer;
+            /* top: 5%;
+            left: 40%; */
+        }
+
+        #hbt:hover {
+            padding: 1.5em;
+        }
+
+        .instruction {
+            color: aqua;
+            font-family: 'Sigmar One', cursive;
+            font-size: 5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 3em;
+        }
+
+        .kp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team {
+            position: absolute;
+            top: 80%;
+            left: 75%;
+            color: aqua;
+            font-size: 2em;
+        }
+
+        .brick-box {
+            height: 85px;
+            width: 110px;
+            border: 1px solid aqua;
+            background-color: aqua;
+
+        }
+
+        .space {
+            margin: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles">
+        <div class="sound">
+            <img src="img/SOUND_ON.png" alt="" id="sound">
+        </div>
+
+        <div id="gameover">
+            <img src="img/youwon.png" alt="" id="youwon">
+            <img src="img/gameover.png" alt="" id="youlose">
+            <div id="restart">Play Again!</div>
+        </div>
+
+        <div class="front">
+
+            <div class="instruction">
+                <div class="brick-box">
+
+                </div>
+
+                BRICK BREAKER
+                <div class="brick-box">
+
+                </div>
+            </div>
+            <div class="kp">
+                <div class="brick-box">
+
+                </div>
+                <div class="space"></div>
+
+                <div class="brick-box">
+
+                </div>
+                <div class="space"></div>
+                <div class="space"></div>
+                <button onclick="hide();" id="hbt"> Play Game </button>
+                <div class="space"></div>
+                <div class="brick-box">
+
+                </div>
+                <div class="space"></div>
+                <div class="space"></div>
+                <div class="brick-box">
+
+                </div>
+            </div>
+            <div class="team">
+                <h3><i>#The-Skyliners-team</i></h3>
+            </div>
+
+        </div>
+
+        <canvas id="breakout" width="1200" height="600"></canvas>
+    </div>
+    <script src="components.js"></script>
+    <script src="game.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+</body>
+
+</html>
